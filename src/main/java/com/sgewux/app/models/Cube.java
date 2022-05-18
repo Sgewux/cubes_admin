@@ -56,8 +56,6 @@ public final class Cube {
         this.name = name;
     }
 
-
-
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
@@ -86,6 +84,16 @@ public final class Cube {
         private String name;
 
         public CubeBuilder(){}
+        
+        public CubeBuilder(Cube other){
+            this.category = other.category;
+            this.brandName = other.brandName;
+            this.numOfPieces = other.numOfPieces;
+            this.difficulty = other.difficulty;
+            this.review = other.review;
+            this.price = other.price;
+            this.name = other.name;
+        }
 
         public Cube build(){
             if ((category != null) && (brandName != null) && (difficulty != null) && (review != null) && (name != null)) {
@@ -94,6 +102,17 @@ public final class Cube {
             } else {
                 throw new UnsetFieldsException();
             }
+        }
+
+        public void clearValues(){
+            // This method will set all the fields to null again
+            this.category = null;
+            this.brandName = null;
+            this.numOfPieces = null;
+            this.difficulty = null;
+            this.review = null;
+            this.price = null;
+            this.name = null;
         }
 
         public CubeBuilder withCategory(Categories category){
