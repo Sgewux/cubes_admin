@@ -17,7 +17,7 @@ public interface CubeClient {
     Cube addNewCube(String newCube);
     
     @RequestLine("GET /cubes/{serialNumber}")
-    Cube getCubeBy(@Param("serialNumber") String serialNumber);
+    Cube getCubeBySerial(@Param("serialNumber") String serialNumber);
 
     @RequestLine("PUT /cubes/{serialNumber}")
     Cube updateCube(@Param("serialNumber") String serialNumber, String newCube);
